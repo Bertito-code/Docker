@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - 3000:3000
+    volumes:
+      - './:/var/intercambio'
+  prometheus:
+    image: prom/prometheus 
+    ports:
+      - 9090:9090
+    volumes:
+      - './:/var/intercambio'

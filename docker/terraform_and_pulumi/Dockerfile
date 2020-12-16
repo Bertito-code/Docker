@@ -1,7 +1,7 @@
 FROM python:3.9-slim-buster
 
 LABEL tecnology=" Python, Terraform, Pulumi "
-LABEL maintainer="Alberto Gonzalez"
+LABEL maintainer="Bertito"
 LABEL stage="DEV"
 
 

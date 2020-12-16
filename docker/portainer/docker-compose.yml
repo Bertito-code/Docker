@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  portainer:
+    container_name: portainer
+    image: portainer/portainer
+    ports:
+      - "8000:8000/tcp"
+      - "9000:9000/tcp"
+    volumes:
+      - './var/run/docker.sock:/var/run/docker.sock'
+      - '/path/on/host/data:/data'
+    restart: always
