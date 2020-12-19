@@ -27,5 +27,32 @@
 - ln -sfn
 - find /var/log/ -type f -ctime +90 -delete&>/dev/null : Busca dentro del directorio indicado todos los archivos que tengan mas de 90 dias y los elimina
 - sudo update-alternatives --config editor : Elegir con que editor abrir el sudoers
-
-
+- ssh-keygen : Crear par de claves ssh
+- sudo useradd Alberto -m -g Administrador -G Profesores -s /bin/bash: Crea el usuario Alberto, le crea el directorio home, lo agrega al grupo principar Administrador, lo agrega al grupo secundario Profesores, y le asigna que su shell por defecto sea bash
+- sudo passwd Alberto : Cambiar la password para el usuario Alberto
+- sudo usermod -aG sudo Alberto : Dar permisos de sudo al usuario Alberto
+- sudo chage -M 30 -W10 Alberto : La password del usuario Alberto se caduca cada 30 dias, y le avisa 10 dias antes de que tiene que cambiar las password
+- sudo netstat -tulpn
+- tail -f *
+- grep -ril
+- netstat -a
+- netstat -a --numeric-port | grep
+- 2>/dev/null : Elimina la salida de error
+- sudo iptables -L --line-numbers : Muestra las lineas en el iptables
+- ls -R : Lista de manera recursiva
+- sudo apt-key list : Saber keys de los paquetes instalados para poder automatizar procesos
+- tcpdump : Paquetes in / out 
+- netstat -nr
+- netstat -tan
+- nmap -v ip : Saber puertos abiertos de la ip seleccionada
+- nmap -iL ~/networks.txt : Ruta del fichero que hemos creado con la lista de ips a escanear
+- sudo iptables -L -n : No traduce ips ni puertos
+- whois NOMBRE_DOMINIO : Informacion sobrte el dominio
+- awk '{print $numero_columna}' : Imprimir la columna selecionada
+- rev : Da la vuelta a un texto, la ultima colomna pasa a ser la primera
+- sudo tcpdump -w conexiones.log : Crear un fichero con los datos de las conexiones
+- sudo tcpdump -r conexiones.log : Ver el fichero que hemos creado anteriormente
+- source : Obtener datos de otro archivo en bash, por ejemplo de un archivo con variables
+- sync; echo 3>/proc/sys/vm/drop_caches : Limpiar caches
+- cat /dev/null > archivo : Vaciar archivos
+- >/dev/null 2>&1 : Para que no se obtenga info de la salida standar y la de error 
