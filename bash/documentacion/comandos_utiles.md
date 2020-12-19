@@ -56,3 +56,19 @@
 - sync; echo 3>/proc/sys/vm/drop_caches : Limpiar caches
 - cat /dev/null > archivo : Vaciar archivos
 - >/dev/null 2>&1 : Para que no se obtenga info de la salida standar y la de error 
+- chsh -s /usr/bin/bash : Cambiar el shell del usuario, hay que poner la ruta del shell al que se quiere cambiar
+- tr : Sustitucion de caracteres
+- split : Sirve para separar archivos grandes en partes mas pequenas, ejemplo split -b 1g prueba.tar . Para volver a unirlos usariamos el comando cat. Ejemplo cat prueba1 prueba2 prueba3 ...
+- fsck : Verificar y reparar errores en el sistema de archivos
+- nslookup HOST : Muestra la ip del host
+- cat /etc/lsb-release : Saber version del S.O
+- sudo apt install --only-upgrade NOMBRE_PAQUETE : Actualiza solo el paquete indicado
+- rm -rf /var/lib/apt/list/* : Elimanr las listas creadas por apt update
+- ssh-copy-id -i ~/.ssh/id_rsa.pub IP_DESTINO : Enviar el acceso rsa a un host
+- htpasswd FICHERO USUARIO : Crea una password encriptada en el fichero
+- lastlog : Saber el ultimo login
+- sudo dd if=origen of=destino : Copiar una ISO en usb
+- sudo dd if=/dev/zero of=archivo_nuevo bs=1024 count=1M : Crear un archivo vacio de 1Gb
+- blkid : Saber id discos
+- sudo logrotate -f : Rotar los log manualmente.
+- sudo logrotate ARCHIVO_CONF --debug : Simular un rotado de logs
