@@ -4,15 +4,19 @@
 
 
 # Variables
-i=10000
+numero_peticiones=
 url_objetivo=
-fichero_datos=datos_brutos.log
+fichero_datos=
+# Poner tantos objetivos como sean necesarios o=n
 objetivo0=
 objetivo1=
-fichero_resultado=resultado_prueba.log
+objetivo2=
+objetivo3=
+objetivon=
+resultado=
 
 # Funciones
-yeah() {
+bucle() {
 while [ ${i} -gt -1 ]
     do
         host ${url_objetivo} >> ${fichero_datos}
@@ -21,18 +25,19 @@ done
 }
 
 tratamiento_datos() {
-        grep ${objetivo0} ${fichero_datos} | wc -l >> ${fichero_resultado}
-
+        grep ${objetivo0} ${fichero_datos} | wc -l >> ${resultado}
 
 }
 
 
 limpieza() {
         rm ${fichero_datos}
-
 }
 
+main() {
+        yeah
+        tratamiento_datos
+        limpieza
+}
 # Programa
-yeah
-tratamiento_datos
-limpieza
+main
