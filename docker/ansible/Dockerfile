@@ -1,8 +1,12 @@
 FROM ubuntu:20.04
 LABEL maintainer="Alberto Gonzalez"
 
-ARG USER_NAME=agonzalez
-ARG USER_PASS=test
+# Info del usuario personal, descomentar para usar
+#ARG USER_NAME=agonzalez
+#ARG USER_PASS=test
+
+# Pass del usuario ansible
+ARG USER_PASS0=E$0#3e1f
 
 RUN  export DEBIAN_FRONTEND=noninteractive
 ENV  DEBIAN_FRONTEND noninteractive
@@ -17,7 +21,7 @@ RUN apt update -y \
 
 RUN useradd -m -s /bin/bash ansible \
     && usermod -aG sudo ansible \
-    && echo "ansible:test" | chpasswd
+    && echo "ansible:${USER_PASS0}" | chpasswd
 
 RUN mkdir -p /home/ansible/.ssh \
     && chmod 700 /home/ansible/.ssh \
@@ -31,9 +35,11 @@ RUN chown ansible:ansible /home/ansible/.ssh/id_rsa \
 
 RUN echo "Host remotehost\n\tStrictHostKeyChecking no\n" >> /home/ansible/.ssh/config
 
-RUN useradd -m -s /bin/bash ${USER_NAME} \
-    && usermod -aG sudo ${USER_NAME} \
-    && echo "${USER_NAME}:${USER_PASS}" | chpasswd
+
+# Usuario personal para el contenedor, descomentar para usar
+#RUN useradd -m -s /bin/bash ${USER_NAME} \
+#    && usermod -aG sudo ${USER_NAME} \
+#    && echo "${USER_NAME}:${USER_PASS}" | chpasswd
 
 EXPOSE 22
 
