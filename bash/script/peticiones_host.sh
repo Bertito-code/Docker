@@ -35,7 +35,7 @@ limpieza() {
 }
 
 main() {
-        yeah
+        bucle
         tratamiento_datos
         limpieza
 }
