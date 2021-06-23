@@ -1,8 +1,7 @@
 #!/bin/bash
 
-
-# Autor: Alberto González Lafuente
-
+# Autor: Alberto González <Bertito@protonmail.com>
+# En desarrollo
 # Script que instala nagios en una maquina local, vm o contenedor
 # Ejecucion: ./install_nagios.sh
 
@@ -70,9 +69,14 @@ plugins() {
     sudo /usr/local/nagios/bin/nagios -v /usr/local/nagios
 }
 
-ini_demon() {
+ini_daemon_systemctl() {
     sudo systemctl enable --now nagios
     sudo systemctl status nagios
+}
+
+ini_daemon_service() {
+    sudo service nagios start
+    sudo service apache2 start
 }
 
 # Programa
@@ -82,4 +86,4 @@ download_nagios
 install_nagios
 create_user_admin
 plugins
-ini_demon
+ini_daemon_service
